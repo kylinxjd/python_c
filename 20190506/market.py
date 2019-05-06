@@ -52,7 +52,7 @@ class ShangHui(object):
         self.connect.commit()
         print('注册成功')
 
-    def xiugaimima(self):
+    def change_password(self):
         if self.islogin:
             inname = input('请输入用户名')
             inpassword = input('请输入新密码:')
@@ -69,10 +69,48 @@ class ShangHui(object):
             return
 
     def showgood(self):
-        print('商品展示')
+        sql = 'select goods.id, goods.name, goods.price, cate.name, brande.name from (goods INNER JOIN cate ON goods.cate_id=cate.id INNER JOIN brande ON goods.brande_id=brande.id)'
+        self.cur.execute(sql)
+        goods = self.cur.fetchall()
+        print('所有商品展示：')
+        for g in goods:
+            print(g)
 
     def order(self):
-        print('下单')
+        if self.islogin:
+            inID = input('请输入您要购买的产品的ID：')
+            sql1 = 'select * from goods WHERE is_selt=0 AND id=%s'
+            count = self.cur.execute(sql1, [inID])
+            if count==0:
+                print("该商品已经卖出")
+                return
+            else:
+                sql2 = 'insert into order_m VALUES (0,%s,%s,%s,%s)'
+                self.cur.execute('select price from goods WHERE id=%s', [inID])
+                cost = self.cur.fetchall()
+                # print(cost)
+                # print(type(cost))
+                # print(type(cost[0]))
+                # print(type(cost[0][0]))
+                cou = self.cur.execute('select serial_number from order_m ORDER BY id DESC limit 1')
+                if cou == 0:
+                    self.cur.execute(sql2,[self.name, inID, cost[0][0], 10010])
+                else:
+                    serial_num = self.cur.fetchall()
+                    # print(serial_num)
+                    # print(type(serial_num))
+                    # print(type(serial_num[0]))
+                    # print(type(serial_num[0][0]))
+                    self.cur.execute(sql2, [self.name, inID, cost[0][0], int(serial_num[0][0])+1])
+                self.cur.execute('select name from goods WHERE id=%s', [inID])
+                good_name = self.cur.fetchall()
+                self.cur.execute('update goods set is_selt=1 WHERE id=%s',[inID])
+                self.connect.commit()
+                print("下单成功，购买"+good_name[0][0]+"花费", cost[0][0], "元")
+            return
+        else:
+            print("您还没有登录")
+            return
 
     def printinfo(self):
         print('欢迎来到尚惠有品商城')
@@ -98,7 +136,7 @@ class ShangHui(object):
                 self.order()
 
             elif choose == '5':
-                self.xiugaimima()
+                self.change_password()
 
             elif choose == '6':
                 break
