@@ -1,0 +1,127 @@
+
+body {
+    align-content: center;
+    text-align: center;
+    background-color: aliceblue;
+}
+
+.header {
+    width: 800px;
+    height: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-left: 30px;
+    padding-right: 30px;
+    align-content: center;
+    text-align: center;
+    background: white;
+}
+
+div.header * {
+    display: inline;
+}
+
+div.header a {
+    text-decoration: none;
+    color: black
+}
+
+.news-body {
+    width: 800px;
+    height: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: -30px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    text-align: left;
+}
+
+.news-body p {
+    word-break: break-word;
+    /*font-size: 20px;*/
+    line-height: 40px;
+}
+
+.headerxi {
+    font-size: 30px;
+    font-weight: 600
+}
+
+.abstrat {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.words {
+    font-weight: 600;
+    color: rgba(51, 12, 9, 0.75);
+    font-size: 20px;
+    text-align: left;
+}
+
+.human {
+    color: darkgray;
+    text-align: right;
+    font-size: 18px
+}
+
+.author {
+    color: darkgray;
+    text-align: right;
+    font-size: 16px;
+    /*margin-left: 200px;*/
+}
+
+.body-bottom {
+    width: 800px;
+    height: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: -30px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: white;
+}
+
+div.body-bottom > div {
+    width: 50px;
+    height: 50px;
+    display: inline-table;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: -12px;
+}
+
+.bottom {
+    width: 800px;
+    height: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+}
+
+.bottom-bottom {
+    width: 800px;
+    height: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+}
+
+.wangqi {
+    vertical-align: top;
+    text-align: start;
+}
