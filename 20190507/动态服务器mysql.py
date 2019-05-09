@@ -45,14 +45,14 @@ class Socket():
             # 判断登录  15会抛出out of range，get请求没有15行
             if ret[0] == 'POST /index HTTP/1.1':
                 userpass = ret[15]
-                print("----------------------------")
-                print(userpass)
-                print("----------------------------")
+                # print("----------------------------")
+                # print(userpass)
+                # print("----------------------------")
                 # username=sssss&password=sss
                 userlist = userpass.split('&')
                 self.name = userlist[0].split('=')[1]
                 self.password = userlist[1].split('=')[1]
-                # 判断登录
+                # 判断登录，设置登录状态
                 sqlm = 'select * from user where name=%s and password=%s'
                 retm = self.cur.execute(sqlm, [self.name, self.password])
                 if retm == 0:
@@ -65,7 +65,10 @@ class Socket():
                 buy = ret[15]
                 buyId = buy.split('=')[1]
                 print(buyId)
-                self.buyid = int(buyId)
+                if buyId != '':
+                    self.buyid = int(buyId)
+                else:
+                    self.buyid = 0
             elif ret[0] == 'POST /rsubmit HTTP/1.1':
                 reg = str(ret[15]).strip()
                 #     username=admin&password=zxcv
@@ -97,6 +100,7 @@ class Socket():
                 # 第一步调用框架的接口
                 responsebody = self.app(environ, self.start_response)
                 rdata = self.reponse_data + responsebody
+                # rdata.setContentType("application/json;charset=utf-8")
                 # data = self.reponse_data + "as"
                 c_s_socket.send(rdata.encode('GBK'))
                 c_s_socket.close()

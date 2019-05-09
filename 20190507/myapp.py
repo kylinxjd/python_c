@@ -37,6 +37,36 @@ def mysql():
     return "as"
 
 
+@route("/index.py")
+def index(cur):
+    status = '200 ok'
+    with open('index.html', encoding='utf-8') as f:
+        # responsebody = f.read()
+        responsebody = f.read()
+    ht = responsebody
+    slist = ht.split('<hr>')
+    sql = 'select goods.id, goods.name, goods.price, cate.name, brande.name from (goods INNER JOIN cate ON goods.cate_id=cate.id INNER JOIN brande ON goods.brande_id=brande.id) WHERE is_selt=0'
+    cur.execute(sql)
+    goods = cur.fetchall()
+    #     \r\n
+    for g in goods:
+        slist[1] += str(g) + '<br>'
+    formBuy = """
+                        <form action="/buy.py" method="post">
+                            <label for="buy">请输入商品ID</label>
+                            <input type="text" id="buy" name="buy" placeholder="商品ID">
+                            <br><br>
+                            <input style="width: 100px; height: 30px" type="submit" id="buy" value="购买">
+                        </form>
+                        """
+    slist[1] = slist[1] + '<br>' + '<br>' + formBuy + '<br>'
+    res = slist[0] + '<hr>' + slist[1] + '<hr>' + slist[2]
+    print(res)
+    # responsebody = res.encode('utf8')
+    # res.encoding = 'gb2312'
+    return res
+
+
 @route("/buy.py")
 def buy(islogin, buyid, cur, connect, name):
     if islogin:
@@ -93,15 +123,17 @@ def app(environ, start_response):
     print('environ:', environ)
     request_path = environ['path']
     # print(request_path)
-    try:
-        start_response('200 ok', [('server', 'wsgisever'), ('name', 'guazi'), ('request_path', request_path)])
-        if request_path == '/buy.py':
-            # islogin, buyid, cur, connect, name
-            response_body = urlfuncdict[request_path](environ['is_login'], environ['buyid'],
-                                                      environ['cur'], environ['connect'], environ['name'])
-        else:
-            response_body = urlfuncdict[request_path]()
-        return response_body
-    except:
-        start_response('404 not', [('server', 'wsgisever'), ('name', 'guazi'), ('request_path', request_path)])
-        return '404'
+    # try:
+    start_response('200 ok', [('server', 'wsgisever'), ('name', 'guazi'), ('request_path', request_path)])
+    if request_path == '/buy.py':
+        # islogin, buyid, cur, connect, name
+        response_body = urlfuncdict[request_path](environ['is_login'], environ['buyid'],
+                                                  environ['cur'], environ['connect'], environ['name'])
+    elif request_path == '/index.py':
+        response_body = urlfuncdict[request_path](environ['cur'])
+    else:
+        response_body = urlfuncdict[request_path]()
+    return response_body
+    # except:
+    #     start_response('404 not', [('server', 'wsgisever'), ('name', 'guazi'), ('request_path', request_path)])
+    #     return '404'

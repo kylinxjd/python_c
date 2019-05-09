@@ -1,3 +1,4 @@
+# coding=utf-8
 import pymysql
 
 connect_obj = pymysql.connect(host='localhost',
@@ -24,6 +25,6 @@ print(data)
 print(type(data))
 print(type(str(data)))
 
-with open('index.html') as f:
-    responsebody = f.read()
-print(type(responsebody))
+# with open('index.html') as f:
+#     responsebody = f.read()
+# print(type(responsebody))
