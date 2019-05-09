@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>login</title>
+</head>
+<body>
+    <img style="margin-left: 150px" src="./logo.jpg" alt="">
+    <div class="choose-role">
+        <span id="com" style="color: black">企业账户注册</span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span id="per" style="color: red">个人账户注册</span>
+    </div>
+    <hr>
+    <p style="display: none" class="tips" id="tip1">有企业营业执照（含个体工商户）的用户请注册。权益如下：做企业实名认证；作为卖家身份开店；作为买家身份采购。</p>
+    <p class="tips" id="tip2">无企业营业执照的个人用户请注册个人账户。权益如下：做个人实名认证；作为买家身份采购；</p>
+    <div class="container">
+        <form action="" id="form-com" style="display: none">
+            <label for="username"><span>*</span>会员名</label>
+            <input type="text" name="username" id="username">
+            <br>
+            <label for="password1"><span>*</span>登录密码</label>
+            <input type="password" name="password1" id="password1">
+            <br>
+            <label for="password2"><span>*</span>重复密码</label>
+            <input type="password" name="password2" id="password2">
+            <br>
+            <label for="contact"><span>*</span>联系人姓名</label>
+            <input type="text" name="contact" id="contact">
+            <br>
+            <label for="enterprise"><span>*</span>企业名称</label>
+            <input type="text" name="enterprise" id="enterprise">
+            <br>
+            <label><span>*</span>贸易身份</label>
+            <input class="trade" type="radio" name="trade" id="trade1">
+            <label for="trade1">我要销售</label>
+            <input class="trade" type="radio" name="trade" id="trade2">
+            <label for="trade2">我要采购</label>
+            <input class="trade" type="radio" name="trade" id="trade3">
+            <label for="trade3" style="margin-right: 100px">两者都是</label>
+            <br>
+            <label for="phone-area"><span>*</span>电话号码</label>
+            <select name="phone-area" id="phone-area">
+                <option value="0">中国大陆 +86</option>
+                <option value="1">中国台湾 +886</option>
+                <option value="2">中国香港 +852</option>
+                <option value="3">马来西亚 +60</option>
+                <option value="4">新加坡 +65</option>
+            </select>
+            <input style="width: 130px" type="text" name="phone-number" id="phone-number">
+            <br>
+            <input class="privacy-input" type="checkbox" name="privacy" id="privacy">
+            <label for="privacy" class="privacy-label">创建网站账号的同时，我同意遵守：</label>
+            <br>
+            <a target="_blank" href="https://rule.1688.com/policy/terms.htm?spm=a211eg.10357043.0.0.1a7417eboCzJHg&tracelog=aliguize_hyjl">《阿里巴巴服务条款》</a>
+            <span style="color: black">及</span>
+            <a class="astyle" target="_blank" href="https://rule.1688.com/policy/privacy.html?spm=a211eg.10357043.0.0.1a7417eboCzJHg">《隐私声明》</a>
+            <br>
+            <button type="submit" >同意并注册</button>
+        </form>
+
+        <form action="" id="form-per">
+            <label for="username"><span>*</span>会员名</label>
+            <input type="text" name="username" id="username-per">
+            <br>
+            <label for="password1"><span>*</span>登录密码</label>
+            <input type="password" name="password1" id="password1-per">
+            <br>
+            <label for="password2"><span>*</span>重复密码</label>
+            <input type="password" name="password2" id="password2-per">
+            <br>
+            <label for="phone-area"><span>*</span>电话号码</label>
+            <select name="phone-area" id="phone-area-per">
+                <option value="0">中国大陆 +86</option>
+                <option value="1">中国台湾 +886</option>
+                <option value="2">中国香港 +852</option>
+                <option value="3">马来西亚 +60</option>
+                <option value="4">新加坡 +65</option>
+            </select>
+            <input style="width: 130px" type="text" name="phone-number" id="phone-number-per">
+            <br>
+            <input class="privacy-input" type="checkbox" name="privacy" id="privacy-per">
+            <label for="privacy" class="privacy-label">创建网站账号的同时，我同意遵守：</label>
+            <br>
+            <a target="_blank" href="https://rule.1688.com/policy/terms.htm?spm=a211eg.10357043.0.0.1a7417eboCzJHg&tracelog=aliguize_hyjl">《阿里巴巴服务条款》</a>
+            <span style="color: black">及</span>
+            <a class="astyle" target="_blank" href="https://rule.1688.com/policy/privacy.html?spm=a211eg.10357043.0.0.1a7417eboCzJHg">《隐私声明》</a>
+            <br>
+            <button type="submit" >同意并注册</button>
+        </form>
+    </div>
+<div class="more" id="more">
+    <h2>了解更多：</h2>
+    <p>手机收不到验证码？</p>
+    <hr>
+    <p>会员账户注册不成功？</p>
+    <hr>
+    <p>企业账户如何开店？</p>
+    <hr>
+    <p>会员名如何设置会更好？</p>
+    <hr>
+    <p>阿里巴巴开店必须要营业执照吗?</p>
+    <hr>
+    <p>其它问题</p>
+    <hr>
+</div>
+</body>
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+$('#com').click(function () {
+    $("#form-com").show();
+    $("#form-per").hide();
+    $("#tip1").show();
+    $("#tip2").hide();
+    $(this).attr("style","color:red;");
+    $("#per").attr("style","color:black;");
+    $("#more").attr("style","margin-top: -430px;");
+
+});
+$('#per').click(function () {
+    $("#form-com").hide();
+    $("#form-per").show();
+    $("#tip1").hide();
+    $("#tip2").show();
+    $(this).attr("style","color:red;");
+    $("#com").attr("style","color:black;");
+    $("#more").attr("style","margin-top: -330px;");
+})
+</script>
+</html>
