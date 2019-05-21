@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        margin: 0 auto;
+        width: 200px;
+        height: 60px;
+        text-align: center;
+    }
+    #div1{
+        background: chartreuse;
+    }
+    #div2{
+        background: chocolate;
+    }
+    #div3{
+        background: cornflowerblue;
+    }
+    </style>
+    <script>
+    window.onload = function () {
+        var count = null;
+        var i = 0;
+        var div1 = document.getElementById('div1');
+        var div2 = document.getElementById('div2');
+        var div3 = document.getElementById('div3');
+
+        function myfunc() {
+            alert("定时器：多次定时")
+        }
+
+        div1.onclick = function () {
+            setTimeout(function () {
+                alert('定时器:单次定时')
+            }, 3000);
+        }
+        div2.onclick = function () {
+            count = setInterval(myfunc, 3000);
+        }
+
+        div3.onclick = function () {
+            clearInterval(count);
+            count = null;
+        }
+    }
+    </script>
+</head>
+<body>
+    <div>定时器练习</div>
+    <div id="div1">单次定时</div>
+    <div id="div2">多次定时（循环定时）</div>
+    <div id="div3">清除定时</div> 
+</body>
+</html>

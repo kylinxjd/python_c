@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+ul,li{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    width: 500px;
+    min-height: 50px;
+    margin: 200px auto;
+    padding-left: 100px
+}
+li{
+    list-style: none;
+    border-bottom: 1px dotted green;
+    font-family: 楷体 serif;
+}
+</style>
+<body>
+    <ul id="ul1">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>    
+window.onload = function () {
+    // 获取ul对象
+    var ul1 = document.getElementById("ul1");
+    var goods = ['火龙果', '大白菜', '小龙虾', '碧根果'];
+    var str1 = '';
+    // 遍历数组并拼接字符串
+    for (let index = 0; index < goods.length; index++) {
+        str1 += '<li>'+goods[index]+'</li>';
+    }
+    // 设置ul列表
+    ul1.innerHTML = str1;
+
+}
+</script>
+</html>

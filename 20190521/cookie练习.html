@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    window.onload = function () {
+    
+        function setCookie(name, eday) {
+            var m_dateTime = new Date();
+            var m_time = m_dateTime.getTime()+eday*24*3600*1000;
+            m_dateTime.setTime(m_time);
+    
+            alert('设置cookie：'+'name='+name+';expires='+m_dateTime.toUTCString());
+            document.cookie = 'name='+name+';expires='+m_dateTime.toGMTString();
+        }
+        function getCookie() {
+            var m_cookie = document.cookie;
+            alert("获取cookie："+m_cookie);
+        }
+        setCookie('老王', 2);
+        getCookie();
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+
+</html>

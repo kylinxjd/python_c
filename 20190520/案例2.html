@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        <label for="username">用户名</label>
+        <input type="text" id="username">
+        <label for="pwd">密　码</label>
+        <input type="password" id="pwd">
+        <label for="cpwd">确认密码</label>
+        <input type="password" id="cpwd">
+        <label for="email">邮　箱</label>
+        <input type="email" id="email">
+        <button type="button" id="btn">提交</button>
+    </form>
+</body>
+<script>
+window.onload = function () {
+    var username = document.getElementById('username');
+    var pwd = document.getElementById('pwd');
+    var cpwd = document.getElementById('cpwd');
+    var email = document.getElementById('email');
+    var btn = document.getElementById('btn');
+    var data = {};
+    btn.onclick = function () {
+        data['username'] = username.value;
+        data['pwd'] = pwd.value;
+        data['cpwd'] = cpwd.value;
+        data['email'] = email.value;
+        if (data['pwd']!=data['cpwd']) {
+            alert("两次密码不一致")
+        }else{
+            alert(JSON.stringify(data));
+        }
+    }
+}
+</script>
+</html>

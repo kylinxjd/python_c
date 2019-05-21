@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+#box{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+}
+</style>
+<body>
+<div id="box">
+    box
+</div>
+<button id="btn1">换背景为绿色</button>
+<button id="btn2">换背景为红色</button>
+</body>
+<script>
+window.onload = function () {
+    var b = document.getElementById("box");
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    btn1.onclick = function () {
+        b.style.background = 'green'
+    }
+    btn2.onclick = function () {
+        b.style.backgroundColor = 'pink';
+        b.innerHTML = 'inner HTML';
+    }
+}
+</script>
+</html>

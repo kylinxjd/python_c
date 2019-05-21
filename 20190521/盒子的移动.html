@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        position: absolute;
+        left: 0;
+    }
+    
+    
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById('box1')
+            var leftnum = 0;
+            var count = null;
+            var flag = 0;
+
+
+            // function myfunc(){
+            //     leftnum += 1;
+            //     box1.style.left = leftnum + 'px';
+            //     if (leftnum>1000) {
+            //         clearInterval(count)
+            //     }
+            // }
+
+            // count = setInterval(myfunc,10)
+
+            function myfunc2() {
+                if (leftnum>1150) {
+                    flag = 1;
+                }
+                if (leftnum<5) {
+                    flag = 0;
+                }
+                if (flag==0) {
+                    leftnum += 1;
+                }
+                if (flag==1) {
+                    leftnum -= 1;
+                }
+                box1.style.left = leftnum + 'px';
+            }
+
+            count = setInterval(myfunc2,2)
+
+        }
+    
+    
+    </script>
+</head>
+<body>
+    <div id='box1'></div>
+    
+</body>
+</html>
