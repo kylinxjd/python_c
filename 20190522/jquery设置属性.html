@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .newclass{
+        height: 100px;
+        width: 100px;
+        background: coral;
+    }
+    </style>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+    
+        $(function(){
+            // 设置属性
+            $("#box1").css({'width':'100px','height':'100px','background':'red'})
+
+
+            $(".box2").css({'font-size':'50px'})
+
+            // 设置类，增加样式
+            $("#box3").addClass('newclass')
+
+            // 读取属性
+            // alert($("span").css('font-size'))
+
+
+            // 设置内容
+            // $(".li1").html("这是第一个li标签")
+
+            // 第一个在ul下的li标签
+            // $("ul li:first").html("这是第一个li标签")
+
+            // 所有的ul下的第一个li标签
+            $("ul li:first-child").html("这是第一个li标签")
+
+            // name为pwd的input标签
+            // alert($("input[name='pwd']"))
+
+
+
+
+
+
+            // alert($(":input").css({'width':'300px'}));
+
+
+            $(":button").css({'width':'365px'})
+
+
+
+        })
+
+    </script>
+</head>
+<body>
+    <div id="box1">box1</div>
+    <div class="box2" id="box2">box2</div>
+    <div id="box3"></div>
+    <span>这是span标签</span>
+    <ul>
+        <li class="li1"></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li class="li"></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <input type="password" name="pwd" id="pwd">
+    <br>
+    <input type="button" value="submit">
+</body>
+</html>

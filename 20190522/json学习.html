@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    window.onload = function () {
+        var username = document.getElementById("username");
+        var password = document.getElementById("password");
+        var sub = document.getElementById("sub");
+        var list = document.getElementById('ulshow');
+
+        sub.onclick = function(){
+            var usernameVal = username.value;
+            var passwordVal = password.value;
+
+            jsonObject = {
+                'username':usernameVal,
+                'password':passwordVal,
+                'parm1':{'a':1, 'b':2}
+            }
+
+            // alert(jsonObject.parm1.b)
+            
+            // 数据展示
+            // var str = '';
+            // for(i in jsonObject){
+            //     console.log(typeof(i));
+            //     str += '<li>'+i+'：'+jsonObject[i]+'</li>';
+            // }
+            // alert(str);
+            // list.innerHTML = str
+
+
+            // json转字符串
+            JSON.stringify(jsonObject)
+
+            // 字符串转json
+            // JSON.parse(字符串json数据)
+        }
+
+
+    }
+    </script>
+</head>
+<body>
+    <form method="post">
+        用户名：<input type="text" name="" id="username">
+        密码：<input type="text" name="" id="password">
+        <input type="button" id="sub" value="提交">
+    </form>
+
+    <div>数据展示</div>
+    <ul id="ulshow">
+
+    </ul>
+</body>
+</html>

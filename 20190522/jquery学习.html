@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./jquery-1.12.4.js"></script>
+
+    <style>
+    div{
+        width: 100px;
+        height: 100px;
+        background: cyan;
+    }
+    </style>
+    <script>
+        // $(document).ready(function () {
+        //     alert("JQ")
+        // })
+        $(function () {
+
+            $("#btn").click(function () {
+                // $("#m-div").hide() // 隐藏
+                // $("#m-div").hide('slow')//慢动作隐藏
+                // $("#m-div").hide(1500) //慢动作隐藏，使用1500毫秒
+                // $("#m-div").show() // 展示
+                // $("#m-div").show('slow') // 慢动作展示
+                // $("#m-div").show(1500) // 慢动作展示，使用1500毫秒
+                $("#m-div").toggle()
+                // $("#m-div").fadeOut(1000)
+            })
+        })
+        // window.onload = function () {
+        //     var m_div = document.getElementById('m-div');
+        //     var btn = document.getElementById('btn');
+            
+        //     btn.onclick = function () {
+        //         // alert("as")
+        //         m_div.style.display = 'none';
+        //         // m_div.style.background = 'crimson';
+        //     }
+        // }
+
+
+
+            
+
+
+
+    </script>
+</head>
+<body>
+    
+    <button id="btn">button</button>
+    <div id="m-div"></div>
+    
+</body>
+</html>
